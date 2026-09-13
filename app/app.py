@@ -114,3 +114,16 @@ st.warning(
     "prototype and is NOT a medical diagnostic tool. Do not use "
     "its predictions for medical decisions."
 )
+
+st.divider()
+
+st.subheader("📊 Health Metrics")
+
+chart_data = pd.DataFrame({
+    "Metric": ["Heart Rate", "Temperature", "SpO₂"],
+    "Value": [heart_rate, temperature, spo2]
+})
+
+st.bar_chart(
+    chart_data.set_index("Metric")
+)
