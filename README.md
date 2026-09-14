@@ -1,84 +1,84 @@
-# ❤️ Smart Health Risk Prediction
+# Smart Health Risk Prediction
 
 A machine learning project that predicts health risk using health monitoring and motion sensor data.
 
-## 📌 Project Overview
+## Project Overview
 
-The Smart Health Risk Prediction system uses machine learning to analyze health and sensor parameters such as heart rate, oxygen level, temperature, motion, gyroscope data, heart rate variability, and fall detection.
+The Smart Health Risk Prediction system uses machine learning to analyze health and sensor parameters such as:
 
-A Logistic Regression model is trained to classify the input as:
+* Heart rate
+* Oxygen level
+* Temperature
+* Heart rate variability
+* Accelerometer data
+* Gyroscope data
+* Fall detection
 
-- ✅ Lower Health Risk
-- ⚠️ Higher Health Risk
+A **Logistic Regression** model is used to classify the input into two categories:
 
-The project also includes a Streamlit web application for interactive predictions.
+* Lower Health Risk
+* Higher Health Risk
 
-## 🚀 Features
+The project also includes a **Streamlit web application** that allows users to enter health parameters and receive a risk prediction.
 
-- ❤️ Heart rate monitoring
-- 🫁 Oxygen level monitoring
-- 🌡️ Temperature monitoring
-- 📈 Heart rate variability analysis
-- 📱 Accelerometer data
-- 🔄 Gyroscope data
-- 🧍 Fall detection
-- 🤖 Machine learning risk prediction
-- 🌐 Streamlit web interface
+> **Note:** The current dataset is simulated/testing data. The model's accuracy should not be interpreted as real-world medical performance.
 
-## 🧠 Machine Learning
+## Features
 
-### Algorithm
+* Heart rate monitoring
+* Oxygen level monitoring
+* Temperature monitoring
+* Heart rate variability analysis
+* Accelerometer data analysis
+* Gyroscope data analysis
+* Fall detection
+* Machine learning health-risk prediction
+* Interactive Streamlit application
+* Model evaluation using Jupyter notebooks
 
-**Logistic Regression**
+## Technologies Used
 
-### Input Features
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Streamlit
+* Matplotlib
+* Jupyter Notebook
+* Git & GitHub
+* ESP32 integration planned
 
-The model uses 13 features:
+## Machine Learning
 
-1. Heart rate
-2. Oxygen level
-3. Temperature
-4. Acceleration X
-5. Acceleration Y
-6. Acceleration Z
-7. Gyroscope X
-8. Gyroscope Y
-9. Gyroscope Z
-10. Acceleration magnitude
-11. Gyroscope magnitude
-12. Heart rate variability
-13. Fall detected
+The project uses **Logistic Regression** for binary health-risk classification.
 
-### Target
+### Input Parameters
 
-`health_risk`
+The model can work with health and sensor-related parameters such as:
 
-- `0` → Lower Health Risk
-- `1` → Higher Health Risk
+* Heart rate
+* Oxygen level
+* Temperature
+* Heart rate variability
+* Motion/accelerometer values
+* Gyroscope values
+* Fall detection
 
-## 📊 Model Performance
+### Output
 
-The dataset contains **612 records**.
+The model predicts:
 
-The data was split into:
+```text
+Lower Health Risk
+```
 
-- Training: 489 samples
-- Testing: 123 samples
+or
 
-### Test Accuracy
+```text
+Higher Health Risk
+```
 
-**100%**
-
-The test set contained:
-
-- 38 lower-risk samples
-- 85 higher-risk samples
-
-All 123 test samples were correctly classified in this evaluation.
-
-> ⚠️ Note: The dataset is simulated, so the 100% accuracy should not be interpreted as real-world medical performance.
-
-## 📂 Project Structure
+## Project Structure
 
 ```text
 smart-health-risk-prediction
@@ -91,6 +91,7 @@ smart-health-risk-prediction
 │   └── Health Monitoring and Fall detection dataset.csv
 │
 ├── esp32
+│   └── health_monitor.ino
 │
 ├── model
 │   └── health_risk_model.pkl
@@ -100,8 +101,89 @@ smart-health-risk-prediction
 │   ├── 02_new_dataset_exploration.ipynb
 │   └── model_evaluation.ipynb
 │
+├── screenshots
+│   └── streamlit_app.png
+│
 ├── src
 │   ├── predict.py
 │   └── train_model.py
 │
+├── .gitignore
+├── README.md
 └── requirements.txt
+```
+
+## Streamlit Application
+
+The project includes a Streamlit interface for interactive health-risk prediction.
+
+### Screenshot
+
+![Streamlit Application](screenshots/streamlit_app.png)
+
+## How to Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Vinaykumar-bethu/smart-health-risk-prediction.git
+```
+
+### 2. Open the project
+
+```bash
+cd smart-health-risk-prediction
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Streamlit application
+
+```bash
+streamlit run app/app.py
+```
+
+The application will open in your browser.
+
+## Model Training
+
+The model-training code is available in:
+
+```text
+src/train_model.py
+```
+
+The trained model is saved as:
+
+```text
+model/health_risk_model.pkl
+```
+
+## Future Improvements
+
+* Connect ESP32 to real sensors
+* Collect real-time health data
+* Add real-time sensor monitoring
+* Improve model validation using real datasets
+* Add more machine learning models
+* Add live health dashboards
+* Add database integration
+* Deploy the Streamlit application online
+* Add alerts for high-risk conditions
+
+## Disclaimer
+
+This project is developed for **educational and portfolio purposes**. It is not a medical diagnostic system and should not be used for medical decisions.
+
+## Author
+
+**Vinay Kumar Bethu**
+
+B.Tech Artificial Intelligence & Machine Learning Student
+
+GitHub: [Vinaykumar-bethu](https://github.com/Vinaykumar-bethu)
+
