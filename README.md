@@ -1,109 +1,107 @@
-# AI-Based Smart Health Monitoring & Risk Prediction System
+# ❤️ Smart Health Risk Prediction
 
-An IoT and Machine Learning based project for monitoring health-related sensor data and predicting potential health risks.
+A machine learning project that predicts health risk using health monitoring and motion sensor data.
 
-## Overview
+## 📌 Project Overview
 
-This project combines an **ESP32 microcontroller, biometric sensors, Python and Machine Learning** to develop a health monitoring and risk prediction system.
+The Smart Health Risk Prediction system uses machine learning to analyze health and sensor parameters such as heart rate, oxygen level, temperature, motion, gyroscope data, heart rate variability, and fall detection.
 
-The system is designed to collect sensor readings, process the collected data, use a machine learning model to estimate potential health risk, and provide an early-risk indication.
+A Logistic Regression model is trained to classify the input as:
 
-## Objectives
+- ✅ Lower Health Risk
+- ⚠️ Higher Health Risk
 
-* Collect health-related data using sensors connected to an ESP32.
-* Process and prepare sensor data for machine learning.
-* Train a machine learning model for health-risk prediction.
-* Generate predictions from sensor readings.
-* Build an end-to-end workflow from data collection to prediction.
-* Develop a simple interface for demonstrating predictions.
+The project also includes a Streamlit web application for interactive predictions.
 
-## Planned Architecture
+## 🚀 Features
+
+- ❤️ Heart rate monitoring
+- 🫁 Oxygen level monitoring
+- 🌡️ Temperature monitoring
+- 📈 Heart rate variability analysis
+- 📱 Accelerometer data
+- 🔄 Gyroscope data
+- 🧍 Fall detection
+- 🤖 Machine learning risk prediction
+- 🌐 Streamlit web interface
+
+## 🧠 Machine Learning
+
+### Algorithm
+
+**Logistic Regression**
+
+### Input Features
+
+The model uses 13 features:
+
+1. Heart rate
+2. Oxygen level
+3. Temperature
+4. Acceleration X
+5. Acceleration Y
+6. Acceleration Z
+7. Gyroscope X
+8. Gyroscope Y
+9. Gyroscope Z
+10. Acceleration magnitude
+11. Gyroscope magnitude
+12. Heart rate variability
+13. Fall detected
+
+### Target
+
+`health_risk`
+
+- `0` → Lower Health Risk
+- `1` → Higher Health Risk
+
+## 📊 Model Performance
+
+The dataset contains **612 records**.
+
+The data was split into:
+
+- Training: 489 samples
+- Testing: 123 samples
+
+### Test Accuracy
+
+**100%**
+
+The test set contained:
+
+- 38 lower-risk samples
+- 85 higher-risk samples
+
+All 123 test samples were correctly classified in this evaluation.
+
+> ⚠️ Note: The dataset is simulated, so the 100% accuracy should not be interpreted as real-world medical performance.
+
+## 📂 Project Structure
 
 ```text
-Biometric Sensors
-       ↓
-     ESP32
-       ↓
- Sensor Readings
-       ↓
- Data Processing
-       ↓
- Machine Learning Model
-       ↓
- Risk Prediction
-       ↓
- Early-Risk Alert / Dashboard
-```
-
-## Technologies
-
-* Python
-* Machine Learning
-* ESP32
-* Sensor Data
-* NumPy
-* Pandas
-* Scikit-learn
-* Git
-* GitHub
-
-## Project Structure
-
-```text
-smart-health-risk-prediction/
+smart-health-risk-prediction
 │
-├── app/
-│   └── Application interface
+├── app
+│   └── app.py
 │
-├── data/
-│   └── Dataset files
+├── data
+│   ├── health_data.csv
+│   └── Health Monitoring and Fall detection dataset.csv
 │
-├── esp32/
-│   └── ESP32 sensor code
+├── esp32
 │
-├── model/
-│   └── Trained machine learning model
+├── model
+│   └── health_risk_model.pkl
 │
-├── notebooks/
-│   └── ML experiments
+├── notebooks
+│   ├── 01_health_risk_model.ipynb
+│   ├── 02_new_dataset_exploration.ipynb
+│   └── model_evaluation.ipynb
 │
-├── src/
-│   ├── Data preprocessing
-│   ├── Model training
-│   └── Prediction
+├── src
+│   ├── predict.py
+│   └── train_model.py
 │
-├── README.md
-├── requirements.txt
-└── .gitignore
-```
-
-## Current Status
-
-**Project Status: In Development**
-
-### Completed
-
-* Project concept
-* Initial project architecture
-* GitHub repository structure
-
-### In Progress
-
-* Dataset preparation
-* Data preprocessing
-* Machine learning model
-* ESP32 sensor integration
-* Prediction interface
-
-## Future Improvements
-
-* Connect real-time ESP32 sensor readings to the prediction pipeline.
-* Add data visualization.
-* Improve model performance using a larger dataset.
-* Add a monitoring dashboard.
-* Improve prediction validation.
-* Deploy the application for demonstration.
-
-## Disclaimer
-
-This project is developed for **educational and demonstration purposes**. It is not intended to provide medical diagnosis or replace professional medical advice.
+└── requirements.txt
