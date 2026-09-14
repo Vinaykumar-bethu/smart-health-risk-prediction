@@ -1,18 +1,23 @@
+
 import os
 import pandas as pd
 import joblib
 import streamlit as st
 
+
+# Page configuration
 st.set_page_config(
     page_title="Smart Health Risk Prediction",
     page_icon="❤️",
     layout="centered"
 )
 
+
 # Project folder
 project_folder = os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
 )
+
 
 # Load trained model
 model_path = os.path.join(
@@ -22,6 +27,7 @@ model_path = os.path.join(
 )
 
 model = joblib.load(model_path)
+
 
 # Title
 st.title("❤️ Smart Health Risk Prediction")
@@ -35,7 +41,9 @@ st.divider()
 
 st.subheader("📋 Health Sensor Information")
 
+
 col1, col2 = st.columns(2)
+
 
 with col1:
 
@@ -117,9 +125,10 @@ with col2:
 
 st.divider()
 
+
 # Prediction button
 if st.button(
-    "🔍 Predict Health Risk",
+    "🔮 Predict Health Risk",
     use_container_width=True
 ):
 
@@ -156,9 +165,13 @@ if st.button(
         ]
     )
 
+
+    # Make prediction
     prediction = model.predict(new_data)
 
+
     st.subheader("Prediction Result")
+
 
     if prediction[0] == 1:
 
@@ -181,6 +194,7 @@ if st.button(
 
 st.divider()
 
+
 st.subheader("🤖 About the Model")
 
 st.write(
@@ -189,6 +203,7 @@ st.write(
     "temperature, motion data, gyroscope data, heart rate "
     "variability, and fall detection."
 )
+
 
 st.warning(
     "⚠️ Educational Project: This application is a machine-learning "
